@@ -1,6 +1,18 @@
 # EventManager
+This website was made while learing django framework. 
+
 A event Management website in python + Django with bulma css framework
 
+Dependency
+Django-```pip install django```
+Django is a high-level Python Web framework
+
+Stripe-```pip install stripe```
+Stripe - A complete payments platform
+
+Pillow-```pip install pillow```
+Pillow is a Python Imaging Library
+(dose not support png if used will throw a os error)
 
 To Run this Project use the following command
 
