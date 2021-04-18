@@ -5,12 +5,18 @@ A event Management website in python + Django with bulma css framework
 To Run this Project use the following command
 
 
-```python -m venv env```
+1.```python -m venv env```
+creates virtual enviroment
 
-```python manage.py makemigrations```
+2.```python manage.py makemigrations```
+generates the SQL commands for preinstalled app
 
-```python manage.py migrate```
+3.```python manage.py migrate```
+migrate executes those SQL commands in the database file
 
-```Python manage.py migrate --run-syncdb```
+3.```Python manage.py migrate --run-syncdb```
+reconstruct database schema according to altered model fields(not necessary)
 
-```python manage.py runserver```
+4.```python manage.py runserver```
+runs the server on localhost.
+127.0.0.1:8000
