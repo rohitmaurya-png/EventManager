@@ -1,0 +1,214 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Coordinator admin | {% endblock %}
+
+{% block content %}
+ <!-- START NAV -->
+ <nav class="navbar is-white">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item brand-text" href="#">
+      Admin - Co-ordinator
+    </a>
+            <div class="navbar-burger burger" data-target="navMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div id="navMenu" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="#">
+        Home
+      </a>
+                <a class="navbar-item" href="#">
+        Orders
+      </a>
+                <a class="navbar-item" href="#">
+        Payments
+        </a>
+            </div>
+    </div>
+</nav>
+<!-- END NAV -->
+<div class="container">
+    <div class="columns">
+        <div class="column is-3 ">
+            <aside class="menu is-hidden-mobile">
+                <p class="menu-label">
+                    General
+                </p>
+                <ul class="menu-list">
+                    <li><a class="is-active">Dashboard</a></li>
+                    
+                </ul>
+                <p class="menu-label">
+                    Administration
+                </p>
+                <ul class="menu-list">
+                    <li><a href="{% url 'edit_coordinator' %}">Edit Coordinators</a></li>
+                    <li><a href="{% url 'add_event' %}">Add Event</a></li>
+                <p class="menu-label">
+                    Transactions
+                </p>
+                <ul class="menu-list">
+                    <li><a>Payments<br>
+                        <strong>My paid amount: </strong>₹{{ coordinator.get_paid_amount }}</a></li>
+                    <li><a>Transfers</a></li>
+                    <li><a>Balance<br>
+                        <strong>My balance:</strong>₹{{ coordinator.get_balance }}<br></a></li>
+                    <li><a>Reports</a></li>
+                </ul>
+            </aside>
+        </div>
+        <div class="column is-9">
+            <nav class="breadcrumb" aria-label="breadcrumbs">
+                <ul>
+                    <li><a href="../">Co-ordinators</a></li>
+                    <li><a href="../">Co-ordinators Admin</a></li>
+                    <li><a href="../">Dashboard</a></li>
+                    <li class="is-active"><a href="#" aria-current="page">Admin</a></li>
+                </ul>
+            </nav>
+            <section class="hero is-info welcome is-small">
+                <div class="hero-body">
+                    <div class="container">
+                        <h1 class="title">
+                            Coordinator admin - {{ coordinator.name }}
+                        </h1>
+                        <h2 class="subtitle">
+                            I hope you are having a great day!
+                        </h2>
+                    </div>
+                </div>
+            </section>
+            <section class="info-tiles">
+                <div class="tile is-ancestor has-text-centered">
+                    <div class="tile is-parent">
+                        <article class="tile is-child box">
+                            <p class="title">439</p>
+                            <p class="subtitle">Users</p>
+                        </article>
+                    </div>
+                    <div class="tile is-parent">
+                        <article class="tile is-child box">
+                            <p class="title">59</p>
+                            <p class="subtitle">events</p>
+                        </article>
+                    </div>
+                    <div class="tile is-parent">
+                        <article class="tile is-child box">
+                            <p class="title">34</p>
+                            <p class="subtitle">Open Orders</p>
+                        </article>
+                    </div>
+                    <div class="tile is-parent">
+                        <article class="tile is-child box">
+                            <p class="title">19</p>
+                            <p class="subtitle">Exceptions</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <div class="columns">
+                <div class="column is-6">
+                    <div class="card events-card">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                Events
+                            </p>
+                            <a href="#" class="card-header-icon" aria-label="more options">
+              <span class="icon">
+                <i class="fa fa-angle-down" aria-hidden="true"></i>
+              </span>
+            </a>
+        </header>
+                            
+    <div class="box">
+        <strong>My balance: </strong>₹{{ coordinator.get_balance }}<br>
+        <strong>My paid amount: </strong>₹{{ coordinator.get_paid_amount }}
+
+        <hr>
+
+        
+        <a href="{% url 'logout' %}" class="button is-danger is-uppercase">Log out</a>
+    </div>
+
+    <div class="box">
+        <h2 class="is-size-3 mb-4">My events</h2>
+
+        <a href="{% url 'add_event' %}" class="button is-dark is-uppercase mb-6">Add event</a>
+
+        {% if events %}
+            <table class="table is-fullwidth">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for event in events %}
+                        <tr>
+                            <td><a href="{% url 'event' event.category.slug event.slug %}">{{ event.title }}</a></td>
+                            <td>₹{{ event.price }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>You don't have any events yet...</p>
+        {% endif %}
+    </div>
+
+    <div class="box">
+        <h2 class="is-size-3 mb-4">My orders</h2>
+    
+        {% if orders %}
+            {% for order in orders %}
+                <div class="{% if order.fully_paid %}has-background-success-light{% else %}has-background-info-light{% endif %} mb-2 p-4">
+                    <div class="columns is-multiline">
+                        <div class="column is-6">
+                            <h3 class="is-size-4">#{{ order.id }} - {{ order.first_name }} {{ order.last_name }}</h3>
+                        </div>
+    
+                        <div class="column is-12">
+                            <b>Name:</b> {{ order.first_name }} {{ order.last_name }}<br>
+                            <b>Address:</b> {{ order.address }}<br>
+                            <b>Zip and place:</b> {{ order.zipcode }} {{ order.place }}<br>
+                            <b>E-mail:</b> {{ order.email }}<br>
+                            <b>Phone:</b> {{ order.phone }}
+    
+                            <table class="table is-fullwidth mt-4">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Paid</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+    
+                                <tbody>
+                                    {% for item in order.items.all %}
+                                        {% if item.coordinator == request.user.coordinator %}
+                                            <tr>
+                                                <td>{{ item.event.title }}</td>
+                                                <td>₹{{ item.event.price }}</td>
+                                                <td>{{ item.quantity }}</td>
+                                                <td>{{ item.coordinator_paid|yesno:"Yes,No" }}</td>
+                                                <td>₹{{ item.get_total_price }}</td>
+                                            </tr>
+                                        {% endif %}
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}

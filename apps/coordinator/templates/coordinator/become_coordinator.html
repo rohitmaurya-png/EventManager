@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Become coordinator | {% endblock %}
+
+{% block content %}
+    <h1 class="title">Become coordinator</h1>
+<table>
+    <form method="post" action=".">
+        {% csrf_token %}
+        
+
+        {{ form.as_table }}
+        
+    
+</table>
+<button class="button is-dark is-uppercase">Sign up</button>
+
+    <hr>
+
+    <h2 class="subtitle">Already have an account?</h2>
+
+    <a href="{% url 'login' %}">Log in</a>
+{% endblock %}
