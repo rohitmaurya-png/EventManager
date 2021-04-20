@@ -39,7 +39,7 @@ runs the server on localhost.
 
 
 Home page
-[![Home Page](./screenshot/Welcome_Event.png)](#Homepage)
+![Home Page](./screenshot/Welcome_Event.png)
 
 Event Page 
 [![Event Page ](./screenshot/Mean_Stack_developers_Event.png)](#Event Page )
