@@ -35,4 +35,4 @@ runs the server on localhost.
 
 
 Home page
-![Screenshot](Welcome Event.png)
+![screenshot](Welcome Event.png)
