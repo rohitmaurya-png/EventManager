@@ -32,3 +32,7 @@ reconstruct database schema according to altered model fields(not necessary)
 4.```python manage.py runserver```
 runs the server on localhost.
 127.0.0.1:8000
+
+
+Home page
+![Screenshot](Welcome Event.png)
