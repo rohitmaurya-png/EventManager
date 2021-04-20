@@ -29,10 +29,33 @@ migrate executes those SQL commands in the database file
 3.```Python manage.py migrate --run-syncdb```
 reconstruct database schema according to altered model fields(not necessary)
 
-4.```python manage.py runserver```
+4.```python manage.py createsuperuser```
+It will create an admin superuser with all Administrative privileges
+
+5.```python manage.py runserver```
 runs the server on localhost.
 127.0.0.1:8000
 
 
+
 Home page
 [![Home Page](./screenshot/Welcome_Event.png)](#Homepage)
+
+Event Page 
+[![Event Page ](./screenshot/Mean_Stack_developers_Event.png)](#Event Page )
+
+become Co-ordinator- can manage his events/orders/view other co-ordinators
+[![Become Co-ordinator](./screenshot/Become_coordinator_Event.png)](#become co-ordinator page)
+
+Co-ordinator Admin Panel
+[![Co-ordinator Admin Panel](./screenshot/Coordinator_admin_Event.png)](#Co-ordinator Admin Panel)
+
+Add event page
+[![Add event page](./screenshot/Add_event_Event.png)](#Add event page)
+
+Superuserlogin
+
+[![Superuser login](./screenshot/Log_in_Welcome_To_Staff_Co-ordinator_Dashboard.png)](#Add event page)
+
+Superuser admin panel(django-admin)
+[![Superuser admin panel](./screenshot/Welcome_To_Staff_Co-ordinator_Dashboard_Welcome_To_Staff_Co-ordinator_Dashboard.png)](#Add event page)
