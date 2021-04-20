@@ -44,15 +44,16 @@ Home page
 become Co-ordinator- can manage his events/orders/view other co-ordinators
 ![Become Co-ordinator](./screenshot/Become_coordinator_Event.png)
 
-Co-ordinator Admin Panel
-![Co-ordinator Admin Panel](./screenshot/Coordinator_admin_Event.png)
 
 Add event page
 ![Add event page](./screenshot/Add_event_Event.png)
 
-Superuserlogin
-
+Superuserlogin 
+url= 127.0.0.1:8000/admin
 ![Superuser login](./screenshot/Log_in_Welcome_To_Staff_Co-ordinator_Dashboard.png)]
 
 Superuser admin panel(django-admin)
 ![Superuser admin panel](./screenshot/Welcome_To_Staff_Co-ordinator_Dashboard_Welcome_To_Staff_Co-ordinator_Dashboard.png)
+
+Co-ordinator Admin Panel
+![Co-ordinator Admin Panel](./screenshot/Coordinator_admin_Event.png)
