@@ -50,7 +50,7 @@ Add event page
 
 Superuserlogin 
 url= 127.0.0.1:8000/admin
-![Superuser login](./screenshot/Log_in_Welcome_To_Staff_Co-ordinator_Dashboard.png)]
+![Superuser login](./screenshot/Log_in_Welcome_To_Staff_Co-ordinator_Dashboard.png)
 
 Superuser admin panel(django-admin)
 ![Superuser admin panel](./screenshot/Welcome_To_Staff_Co-ordinator_Dashboard_Welcome_To_Staff_Co-ordinator_Dashboard.png)
