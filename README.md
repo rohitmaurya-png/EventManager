@@ -35,4 +35,4 @@ runs the server on localhost.
 
 
 Home page
-![screenshot](Welcome Event.png)
+[![Home Page](./screenshot/Welcome Event.png)](#Homepage)
